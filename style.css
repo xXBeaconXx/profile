@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #0a0c10;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #eef5ff;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+/* 科技感網格背景 + 微光暈 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+/* 導航欄 - 毛玻璃效果 */
+.navbar {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(12px);
+    background: rgba(10, 12, 16, 0.75);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    z-index: 100;
+    padding: 1rem 0;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #aaffff, #6c5ce7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+.logo i {
+    color: #0ff;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    margin-right: 6px;
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+.nav-links a {
+    color: #ccddf8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+}
+.nav-links a:hover {
+    color: #0ff;
+    text-shadow: 0 0 6px #0ff8;
+}
+/* 通用區塊樣式 */
+section {
+    padding: 5rem 0;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+}
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #0ff, #6c5ce7);
+    border-radius: 4px;
+}
+/* hero 區域 */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+}
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.hero-text {
+    flex: 1;
+}
+.hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    color: #0ff;
+    background: rgba(0, 255, 255, 0.1);
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+.gradient-text {
+    background: linear-gradient(135deg, #f0f, #0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.typewriter {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 1rem 0 1.2rem 0;
+    min-height: 80px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #b9f3ff;
+}
+.hero-desc {
+    font-size: 1.1rem;
+    color: #b0c4de;
+    max-width: 550px;
+    margin-bottom: 2rem;
+}
+.social-links a {
+    color: #ccddf8;
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+    transition: 0.2s;
+    display: inline-block;
+}
+.social-links a:hover {
+    color: #0ff;
+    transform: translateY(-3px);
+}
+.hero-avatar {
+    flex: 0.8;
+    text-align: center;
+    background: radial-gradient(circle at 30% 20%, rgba(0, 255, 255, 0.15), transparent 70%);
+    padding: 1rem;
+}
+.avatar-icon {
+    font-size: 12rem;
+    color: #0ff;
+    filter: drop-shadow(0 0 12px #0ff6);
+}
+/* 技能卡片網格 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 2rem;
+}
+.skill-card {
+    background: rgba(20, 25, 35, 0.7);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 28px;
+    padding: 1.8rem;
+    transition: all 0.25s ease;
+}
+.skill-card:hover {
+    border-color: #0ff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -8px rgba(0, 255, 255, 0.2);
+}
+.skill-icon {
+    font-size: 2.5rem;
+    color: #0ff;
+    margin-bottom: 1rem;
+}
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+.skill-tags span {
+    background: rgba(0, 255, 255, 0.12);
+    padding: 0.25rem 0.9rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: monospace;
+}
+/* 項目卡片 */
+.projects-grid, .anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+.project-card, .anime-card {
+    background: rgba(15, 20, 30, 0.6);
+    backdrop-filter: blur(4px);
+    border-radius: 24px;
+    padding: 1.5rem;
+    border: 1px solid rgba(100, 100, 255, 0.2);
+    transition: all 0.25s;
+}
+.project-card:hover, .anime-card:hover {
+    border-color: #0ff;
+    background: rgba(20, 30, 45, 0.8);
+    transform: translateY(-4px);
+}
+.project-icon {
+    font-size: 2.2rem;
+    color: #6c5ce7;
+    margin-bottom: 1rem;
+}
+.project-card h3, .anime-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+.project-tech {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #7f8cff;
+    margin: 0.8rem 0;
+}
+.anime-score {
+    margin-top: 1rem;
+    color: #ffd966;
+    letter-spacing: 2px;
+}
+.anime-tag {
+    background: rgba(0, 255, 255, 0.2);
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+}
+/* 動漫區額外裝飾 */
+.quote-area {
+    margin-top: 3rem;
+    background: rgba(0, 10, 20, 0.7);
+    border-left: 4px solid #0ff;
+    padding: 1.5rem;
+    border-radius: 20px;
+    font-style: italic;
+    font-size: 1rem;
+}
+#anime-quote {
+    color: #bdf;
+}
+/* 聯繫區 */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+.contact-item {
+    background: rgba(20, 28, 40, 0.6);
+    border-radius: 60px;
+    padding: 0.8rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: 0.2s;
+}
+.contact-item i {
+    font-size: 1.6rem;
+    color: #0ff;
+}
+.contact-item span {
+    font-weight: 500;
+}
+.contact-item:hover {
+    background: #00ff1a;
+    border-color: #0ff;
+    transform: scale(1.02);
+}
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+    color: #8a9bb5;
+    font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    .hero-text h1 {
+        font-size: 2.3rem;
+    }
+    .typewriter {
+        font-size: 1.2rem;
+    }
+    .nav-container {
+        flex-direction: column;
+    }
+    .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .avatar-icon {
+        font-size: 8rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+a {
+    text-decoration: none;
+}
+button, .fake-link {
+    cursor: pointer;
+}
+/* 自訂滾動條 - 科技感風格 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0c10;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #0ff, #6c5ce7);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #6c5ce7, #0ff);
+}
+/* Firefox 相容 */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #0ff #0a0c10;
+}
